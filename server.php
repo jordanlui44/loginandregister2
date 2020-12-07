@@ -82,7 +82,7 @@ header('Location: login.php');
 
 if(isset($_POST['login_user'])){
     $UserName = mysqli_real_escape_string($db, $_POST['UserName']);
-    $Password_1 = mysqli_real_escape_string($db, $_POST['Password_1']); 
+    $Password_1 = mysqli_real_escape_string($db, $_POST['Password']); 
 
     if(empty($UserName)){
         array_push($errors, 'You need a Username.');
