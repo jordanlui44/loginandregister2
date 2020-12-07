@@ -13,7 +13,7 @@ $success ='good job';
 
 //connects to the database
 
-$db = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 //registers the user
 
@@ -69,7 +69,7 @@ if($user){
 if(count($errors) == 0){
 $Password = md5($Password_1);
 
-$query = "INSERT INTO User (FirstName, LastName, Username, Email, Password) VALUES ('$FirstName', '$LastName', '$Email','$Password')";
+$query = "INSERT INTO User (FirstName, LastName, Username, Email, Password) VALUES ('$FirstName', '$LastName','$UserName','$Email','$Password')";
 mysqli_query($db, $query);
 
     $_SESSION['UserName'] = $UserName;
