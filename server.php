@@ -1,5 +1,5 @@
 <?php
-
+// Jordan's server
 
 session_start();
 include('config.php');
@@ -69,7 +69,7 @@ if($user){
 if(count($errors) == 0){
 $Password = md5($Password_1);
 
-$query = "INSERT INTO User (FirstName, LastName, Username, Email, Password) VALUES ('$FirstName', '$LastName','$UserName','$Email','$Password')";
+$query = "INSERT INTO User (FirstName, LastName, Username, Email, Password) VALUES ('$FirstName', '$LastName', '$Username', '$Email','$Password')";
 mysqli_query($db, $query);
 
     $_SESSION['UserName'] = $UserName;
@@ -90,9 +90,10 @@ if(isset($_POST['login_user'])){
     if(empty($Password)){
         array_push($errors, 'You need a password.');
     }
+     
     if(count($errors) == 0){
         $Password = md5($Password);
-        $query = "SELECT * FROM User WHERE username ='$UserName' AND password = '$Password'";
+        $query = "SELECT * FROM User WHERE Username ='$UserName' AND password = '$Password'";
         $results = mysqli_query($db, $query);
         if(mysqli_num_rows($results) == 1){
         $_SESSION['Username'] = $UserName;
